@@ -1,13 +1,14 @@
-import React, { useContext } from 'react';
-import {
-  View,
-  ActivityIndicator
-} from 'react-native';
+import React from 'react';
+// import {
+//   View,
+//   ActivityIndicator
+// } from 'react-native';
 
-import { AuthRoutes } from './auth.routes';
-import { AppRoutes } from './app.routes';
-import { AuthContext } from '../contexts/auth';
-import { SingUp } from '../screens/SignUp';
+// import { AuthRoutes } from './auth.routes';
+// import { AppRoutes } from './app.routes';
+// import { AuthContext } from '../contexts/auth';
+import { SignIn } from '../screens/SignIn';
+import { SignUp } from '../screens/SignUp';
 
 export function Routes() {
     // const { signed, loading } = useContext(AuthContext);
@@ -25,6 +26,6 @@ export function Routes() {
 
     //Provisorio:
     return(
-      <SingUp/>
+      <SignUp/>
     )
 }

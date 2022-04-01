@@ -1,15 +1,17 @@
 import React from 'react';
 
 import {
-  View
+  View, Text
 } from 'react-native';
 
 import { styles } from './styles';
 
-export function Approutes() {
+export function Home() {
   return (
     <View>
-
+        <Text>
+            Home
+        </Text>
     </View>
   );
 }

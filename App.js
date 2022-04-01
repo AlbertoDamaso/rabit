@@ -1,10 +1,14 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { StatusBar } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
 
 import { useFonts } from 'expo-font';
 import { Montserrat_400Regular, Montserrat_700Bold } from '@expo-google-fonts/montserrat';
 
 import { Background } from './src/components/Background';
+import { Routes } from './src/routes';
+
+console.disableYellowBox=true;
 
 export default function App() {
   const [fontsLoaded, error] = useFonts({
@@ -16,19 +20,16 @@ export default function App() {
   //   return <AppLoading/>
   // }
 
-  // return (
-  //   <NavigationContainer>
-  //     <StatusBar
-  //       barStyle="light-content"
-  //       backgroundColor="transparent"
-  //       translucent
-  //     />
-  //     <Routes/>
-  //   </NavigationContainer>
-  // );
   return (
     <Background>
-      <Text>Rabit</Text>
+      <NavigationContainer>
+        <StatusBar
+          barStyle="light-content"
+          backgroundColor="transparent"
+          translucent
+        />
+        <Routes/>
+      </NavigationContainer>
     </Background>
   );
 }

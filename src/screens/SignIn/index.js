@@ -8,12 +8,16 @@ import { Logo } from '../../components/Logo';
 import { Input } from '../../components/Input';
 import { Button } from '../../components/Button';
 
-import { styles } from '../SignIn/styles';
+import { styles } from './styles';
 
-export function SignUp() {
+export function SignIn() {
+
+  function handleSignIn(){
+    navigator.navigate('Home');
+  }
 
   function handleSignUp(){
-    navigator.navigate('Home');
+    navigator.navigate('SignUp');
   }
 
   return (
@@ -21,11 +25,7 @@ export function SignUp() {
       <Logo style={styles.logo}/>
 
       <View style={styles.areaInput}>
-        <Input
-        placeholder="Nome"
-        returnKeyType="next"
-        onSubmitEditing={ () => Keyboard.dismiss()}
-        />
+
         <Input
         placeholder="E-mail"
         returnKeyType="next"
@@ -40,12 +40,18 @@ export function SignUp() {
 
       <View style={styles.areaBtn}>
         <Button
-          onPress={(handleSignUp)}
-          title={"Cadastrar"}
+          onPress={(handleSignIn)}
+          title={"Entrar"}
           activeOpacity={0.7}
         />
         <Text style={styles.link}>
-          Cadastrar por outros meios!
+          Logar por outros meios!
+        </Text>
+        <Text 
+          style={styles.link}
+          onPress={(handleSignUp)}
+        >
+          Criar conta.
         </Text>
       </View>
     </View>
