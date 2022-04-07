@@ -3,25 +3,28 @@ import {
   View,
   Text
 } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 import { Logo } from '../../components/Logo';
 import { Input } from '../../components/Input';
 import { Button } from '../../components/Button';
 
 import { styles } from './styles';
+import { Background } from '../../components/Background';
 
 export function SignIn() {
+  const navigation = useNavigation();
 
   function handleSignIn(){
-    navigator.navigate('Home');
+    navigation.navigate('AppRoutes');
   }
 
   function handleSignUp(){
-    navigator.navigate('SignUp');
+    navigation.navigate('SignUp');
   }
 
   return (
-    <View style={styles.container}>
+    <Background>
       <Logo style={styles.logo}/>
 
       <View style={styles.areaInput}>
@@ -54,6 +57,6 @@ export function SignIn() {
           Criar conta.
         </Text>
       </View>
-    </View>
+    </Background>
   );
 }

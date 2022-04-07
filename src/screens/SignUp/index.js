@@ -3,7 +3,9 @@ import {
   View,
   Text
 } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
+import { Background } from '../../components/Background';
 import { Logo } from '../../components/Logo';
 import { Input } from '../../components/Input';
 import { Button } from '../../components/Button';
@@ -11,13 +13,18 @@ import { Button } from '../../components/Button';
 import { styles } from '../SignIn/styles';
 
 export function SignUp() {
+  const navigation = useNavigation();
 
   function handleSignUp(){
-    navigator.navigate('Home');
+    navigation.navigate('AppRoutes');
+  }
+
+  function handleSignIn(){
+    navigation.navigate('SignIn')
   }
 
   return (
-    <View style={styles.container}>
+    <Background>
       <Logo style={styles.logo}/>
 
       <View style={styles.areaInput}>
@@ -47,7 +54,13 @@ export function SignUp() {
         <Text style={styles.link}>
           Cadastrar por outros meios!
         </Text>
+        <Text 
+          style={styles.link}
+          onPress={(handleSignIn)}
+        >
+          Já tenho conta.
+        </Text>
       </View>
-    </View>
+    </Background>
   );
 }

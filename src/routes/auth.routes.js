@@ -1,15 +1,36 @@
-import React from 'react';
+import React from 'react'
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import {
-  View
-} from 'react-native';
+import { SignIn } from '../screens/SignIn';
+import { SignUp } from '../screens/SignUp';
+import { AppRoutes } from '../routes/app.routes';
 
-import { styles } from './styles';
+const AuthStack = createNativeStackNavigator();
 
-export function Authroutes() {
-  return (
-    <View>
+export function AuthRoutes(){
+  return(
+    <AuthStack.Navigator
+      screenOptions={{
+        headerShown: false,
+        contentStyle: {backgroundColor: 'transparent'}
+      }}
+    >
 
-    </View>
+      <AuthStack.Screen 
+        name="SignIn"
+        component={SignIn}
+      />
+
+      <AuthStack.Screen 
+        name="SignUp"
+        component={SignUp}   
+      />     
+      
+      <AuthStack.Screen 
+        name="AppRoutes"
+        component={AppRoutes}   
+      />                      
+
+    </AuthStack.Navigator>
   );
 }

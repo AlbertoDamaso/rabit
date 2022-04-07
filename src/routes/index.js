@@ -1,14 +1,13 @@
 import React from 'react';
+import { SignUp } from '../screens/SignUp';
 // import {
 //   View,
 //   ActivityIndicator
 // } from 'react-native';
 
-// import { AuthRoutes } from './auth.routes';
+import { AuthRoutes } from './auth.routes';
 // import { AppRoutes } from './app.routes';
 // import { AuthContext } from '../contexts/auth';
-import { SignIn } from '../screens/SignIn';
-import { SignUp } from '../screens/SignUp';
 
 export function Routes() {
     // const { signed, loading } = useContext(AuthContext);
@@ -26,6 +25,6 @@ export function Routes() {
 
     //Provisorio:
     return(
-      <SignUp/>
+      <AuthRoutes/>
     )
 }

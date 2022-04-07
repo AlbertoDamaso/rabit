@@ -10,7 +10,6 @@ export const theme = {
         secundary85: '#22775B',
         secundary75: '#39846B',
 
-
         dark: '#222222',
         light: '#f1f1f1',
 
@@ -19,7 +18,7 @@ export const theme = {
     },
 
     fonts: {
-        text: 'Montserrat_400Regular',
         title: 'Montserrat_700Bold',
-    }
+        text: 'Montserrat_400Regular',
+      }
 }
