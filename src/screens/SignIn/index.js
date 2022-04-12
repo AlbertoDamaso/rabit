@@ -45,6 +45,7 @@ export function SignIn() {
         <Input
         placeholder="Senha"
         returnKeyType="next"
+        isSecure={true}
         onSubmitEditing={ () => Keyboard.dismiss()}
         autoCapitalize="none"
         value={password}

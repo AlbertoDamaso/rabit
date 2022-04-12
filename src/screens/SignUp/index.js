@@ -14,17 +14,17 @@ import { AuthContext } from '../../contexts/auth'
 import { styles } from '../SignIn/styles';
 
 export function SignUp() {
+  const navigation = useNavigation();
+
   const [zap, setZap] = useState('');
   const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   
-  const navigation = useNavigation();
-
-  const { signUp } = useContext(AuthContext);
+  const {signUp} = useContext(AuthContext);
 
   function handleSignUp(){
-    signUp(zap, email, password, nome)   
+    signUp(email, password, nome, zap)   
   }
 
   function handleSignIn(){
@@ -69,6 +69,7 @@ export function SignUp() {
           placeholder="Senha"
           returnKeyType="next"
           onSubmitEditing={ () => Keyboard.dismiss()}
+          isSecure={true}
           autoCorrect={false}
           autoCapitalize="none"
           value={password}
