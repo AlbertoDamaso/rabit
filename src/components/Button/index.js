@@ -8,15 +8,14 @@ import {
 import { styles } from './styles';
 
 export function Button({ title, ...rest}) {
-//   const { loadingAuth } = useContext(AuthContext);  
   return (
     <TouchableOpacity
-        style={styles.click}
-        {...rest}
+      style={styles.click}
+      {...rest}
     >
-        <Text style={styles.text}>
-            { title }
-        </Text>
+      <Text style={styles.text}>
+        { title }
+      </Text>
     </TouchableOpacity>
   );
 }

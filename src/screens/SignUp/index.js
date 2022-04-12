@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useContext } from 'react';
 import {
   View,
   Text
@@ -9,14 +9,22 @@ import { Background } from '../../components/Background';
 import { Logo } from '../../components/Logo';
 import { Input } from '../../components/Input';
 import { Button } from '../../components/Button';
+import { AuthContext } from '../../contexts/auth' 
 
 import { styles } from '../SignIn/styles';
 
 export function SignUp() {
+  const [zap, setZap] = useState('');
+  const [nome, setNome] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  
   const navigation = useNavigation();
 
+  const { signUp } = useContext(AuthContext);
+
   function handleSignUp(){
-    navigation.navigate('AppRoutes');
+    signUp(zap, email, password, nome)   
   }
 
   function handleSignIn(){
@@ -29,19 +37,43 @@ export function SignUp() {
 
       <View style={styles.areaInput}>
         <Input
-        placeholder="Nome"
-        returnKeyType="next"
-        onSubmitEditing={ () => Keyboard.dismiss()}
+          placeholder="Nome"
+          returnKeyType="next"
+          onSubmitEditing={ () => Keyboard.dismiss()}
+          autoCorrect={false}
+          autoCapitalize="none"
+          value={nome}
+          onChangeText={ (text) => setNome(text) }
         />
         <Input
-        placeholder="E-mail"
-        returnKeyType="next"
-        onSubmitEditing={ () => Keyboard.dismiss()}
+          placeholder="WhatsApp"
+          returnKeyType="next"
+          onSubmitEditing={ () => Keyboard.dismiss()}
+          autoCorrect={false}
+          autoCapitalize="none"
+          value={zap}
+          onChangeText={ (text) => setZap(text) }
+          keyboardType = "phone-pad"
+        />        
+        <Input
+          placeholder="E-mail"
+          returnKeyType="next"
+          onSubmitEditing={ () => Keyboard.dismiss()}
+          autoCorrect={false}
+          autoCapitalize="none"
+          value={email}
+          onChangeText={ (text) => setEmail(text) }
+          keyboardType = "email-address"
         />
         <Input
-        placeholder="Senha"
-        returnKeyType="next"
-        onSubmitEditing={ () => Keyboard.dismiss()}
+          placeholder="Senha"
+          returnKeyType="next"
+          onSubmitEditing={ () => Keyboard.dismiss()}
+          autoCorrect={false}
+          autoCapitalize="none"
+          value={password}
+          onChangeText={ (text) => setPassword(text) }
+          secureTextEntry={true}
         />
       </View>
 

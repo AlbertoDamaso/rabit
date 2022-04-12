@@ -25,11 +25,6 @@ export function AuthRoutes(){
         name="SignUp"
         component={SignUp}   
       />     
-      
-      <AuthStack.Screen 
-        name="AppRoutes"
-        component={AppRoutes}   
-      />                      
 
     </AuthStack.Navigator>
   );

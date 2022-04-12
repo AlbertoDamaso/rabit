@@ -1,35 +1,51 @@
-import React from 'react';
-import { View, Text, Image} from 'react-native';
+import React, { useContext } from 'react';
+import { AntDesign } from '@expo/vector-icons';
+import {
+  View,
+  Text,
+  Image
+} from 'react-native';
+
 import { DrawerContentScrollView, DrawerItemList, DrawerItem } from '@react-navigation/drawer';
 
+// import { AuthContext } from '../../contexts/auth';
+import { ImgProfile } from '../ImgProfile';
+import { styles } from './styles';
 
-export default function CustomDrawer(props) {
+export function CustomDrawer(props) {
+    // const { user, signOut } = useContext(AuthContext);
 
- return (
-   <DrawerContentScrollView  {...props} >
-       <View style={{alignItems: 'center', justifyContent: 'center', marginTop: 25}}>
-           <Image
-           source={require('../../assets/Logo.png')}
-           style={{width: 85, height: 85}}
-           resizeMode="contain"
-           />
+  return (
+    <DrawerContentScrollView {...props}>
+        <View style={styles.container}>
+            <ImgProfile/>
 
-           <Text style={{color: '#FFF', fontSize: 18, marginTop: 5}}>
-               Bem-vindo
-           </Text>
-           <Text style={{color: '#FFF', fontSize: 17, fontWeight: 'bold', paddingBottom: 25}}>
-               Alberto Matheus
-           </Text>
-       </View>
+            <Text style={styles.title}>
+               Alberto
+            </Text>
+            <Text style={styles.text}>
+               356tarefas
+            </Text>
+        </View>
 
-      <DrawerItemList {...props} />
+        <View style={styles.lineDivider} />
 
-      <DrawerItem
-      {...props}
-      label="Sair do app"
-      inactiveBackgroundColor="#c62c36"
-      />
+        <DrawerItemList {...props}/>
 
-   </DrawerContentScrollView>
+        <DrawerItem
+            {...props}
+            label="Sair"
+            style={{marginHorizontal: 20}}
+            labelStyle={{fontSize: 18, fontWeight: 'bold', color:"#222", marginLeft: -25}}
+            icon={() =>
+              <AntDesign
+                name="logout"
+                size={24}
+                color="#222"
+              />
+            }
+            // onPress={ () => signOut() }
+        />
+    </DrawerContentScrollView>
   );
 }

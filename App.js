@@ -9,6 +9,8 @@ import AppLoading from 'expo-app-loading';
 import { Background } from './src/components/Background';
 import { Routes } from './src/routes';
 
+console.disableYellowBox=true;
+
 export default function App(){
   const [fontsLoaded, error] = useFonts({
     Montserrat_400Regular,
