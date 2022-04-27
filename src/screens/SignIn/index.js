@@ -20,7 +20,8 @@ export function SignIn() {
   const { signIn, loadingAuth } = useContext(AuthContext);
 
   function handleLogin(){
-    signIn(email, password);
+    //signIn(email, password);
+    navigation.navigate('AppRoutes');
   }
 
   function handleSignUp(){

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { AntDesign } from '@expo/vector-icons';
+import { AntDesign, FontAwesome5 } from '@expo/vector-icons';
 import {
   View,
   Text,
@@ -36,12 +36,12 @@ export function CustomDrawer(props) {
             {...props}
             label="Sair"
             style={{marginHorizontal: 20}}
-            labelStyle={{fontSize: 18, fontWeight: 'bold', color:"#222", marginLeft: -25}}
+            labelStyle={{fontSize: 19, fontWeight: 'bold', color:"#f1f1f1", marginLeft: -25}}
             icon={() =>
-              <AntDesign
-                name="logout"
+              <FontAwesome5
+                name="walking"
                 size={24}
-                color="#222"
+                color="#f1f1f1"
               />
             }
             // onPress={ () => signOut() }

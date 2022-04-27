@@ -9,13 +9,13 @@ export const styles = StyleSheet.create({
     marginHorizontal: 20,
   },
   title: {
-    color: theme.colors.dark,
+    color: theme.colors.light,
     fontFamily: theme.fonts.title,
     fontSize: 18,
     marginTop: 15
   },
   text: {
-    color: theme.colors.secundary,
+    color: theme.colors.primaryMais,
     fontFamily: theme.fonts.text,
     fontSize: 18,
     marginTop: 5,
@@ -23,7 +23,7 @@ export const styles = StyleSheet.create({
   },
   lineDivider: {
       borderBottomWidth: 2,
-      borderColor: "#ececec",
+      borderColor: theme.colors.secundary,
       marginBottom: 25,
   }
 });
