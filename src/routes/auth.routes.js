@@ -15,12 +15,10 @@ export function AuthRoutes(){
         contentStyle: {backgroundColor: 'transparent'}
       }}
     >
-
       <AuthStack.Screen 
         name="SignIn"
         component={SignIn}
       />
-
       <AuthStack.Screen 
         name="SignUp"
         component={SignUp}   

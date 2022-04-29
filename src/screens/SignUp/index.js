@@ -32,7 +32,7 @@ export function SignUp() {
   }
 
   return (
-    <Background>
+    <View style={styles.container}>
       <Logo style={styles.logo}/>
 
       <View style={styles.areaInput}>
@@ -94,6 +94,6 @@ export function SignUp() {
           Já tenho conta.
         </Text>
       </View>
-    </Background>
+    </View>
   );
 }

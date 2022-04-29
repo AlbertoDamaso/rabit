@@ -9,12 +9,12 @@ import { theme } from '../../global/styles/theme';
 
 export function BtnDrawer() {
   return (
-    <TO>
-        <FontAwesome
-            name="align-justify"
-            size={24}
-            color={theme.colors.primary}
-        />
+    <TO style={styles.bgBtn}>
+      <FontAwesome
+        name="align-justify"
+        size={24}
+        color={theme.colors.primary}
+      />
     </TO>
   );
 }

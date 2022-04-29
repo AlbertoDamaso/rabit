@@ -29,7 +29,7 @@ export function SignIn() {
   }
 
   return (
-    <Background>
+    <View style = {styles.container}>
       <Logo style={styles.logo}/>
 
       <View style={styles.areaInput}>
@@ -71,6 +71,6 @@ export function SignIn() {
           Criar conta.
         </Text>
       </View>
-    </Background>
+    </View>
   );
 }

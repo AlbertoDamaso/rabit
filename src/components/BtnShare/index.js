@@ -1,15 +1,20 @@
 import React from 'react';
-
 import {
-  View
+  TouchableOpacity as TO
 } from 'react-native';
+import { Feather } from '@expo/vector-icons';
 
 import { styles } from './styles';
+import { theme } from '../../global/styles/theme';
 
 export function BtnShare() {
   return (
-    <View>
-
-    </View>
+    <TO style={styles.bgBtn}>
+      <Feather
+        name="share"
+        size={24}
+        color={theme.colors.primary}
+      />
+    </TO>
   );
 }
