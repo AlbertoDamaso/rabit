@@ -26,21 +26,21 @@ export const styles = StyleSheet.create({
   },
   title: {
     width: 140,
+    height: 42,
     marginHorizontal: 5,
     fontFamily: theme.fonts.title,
     fontSize: 14,
     color: theme.colors.light,
   },
   text: {
+    height: 55,
     fontSize: 14,
-    marginTop: 5,
     marginHorizontal: 5,
     fontFamily: theme.fonts.text,
     color: theme.colors.light,
   },
   textValor: {
     fontSize: 14,
-    marginTop: 5,
     marginHorizontal: 5,
     fontFamily: theme.fonts.text,
     color: theme.colors.success,

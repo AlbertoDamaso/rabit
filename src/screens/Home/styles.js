@@ -20,8 +20,6 @@ export const styles = StyleSheet.create({
     fontFamily: theme.fonts.title,
     color: theme.colors.light,
   },
-  matches: {
-    width: '100%',
-  },
+
 
 });

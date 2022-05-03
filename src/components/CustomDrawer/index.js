@@ -3,17 +3,16 @@ import { AntDesign, FontAwesome5 } from '@expo/vector-icons';
 import {
   View,
   Text,
-  Image
 } from 'react-native';
 
 import { DrawerContentScrollView, DrawerItemList, DrawerItem } from '@react-navigation/drawer';
 
-// import { AuthContext } from '../../contexts/auth';
+import { AuthContext } from '../../contexts/auth';
 import { ImgProfile } from '../ImgProfile';
 import { styles } from './styles';
 
 export function CustomDrawer(props) {
-    // const { user, signOut } = useContext(AuthContext);
+    const { signOut } = useContext(AuthContext);
 
   return (
     <DrawerContentScrollView {...props}>
@@ -44,7 +43,7 @@ export function CustomDrawer(props) {
                 color="#f1f1f1"
               />
             }
-            // onPress={ () => signOut() }
+            onPress={ () => signOut() }
         />
     </DrawerContentScrollView>
   );

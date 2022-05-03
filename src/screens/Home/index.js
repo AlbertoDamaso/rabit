@@ -4,19 +4,17 @@ import {
   View,
   Text,
   Image,
-  FlatList
+  ScrollView,
+  SafeAreaView
 } from 'react-native';
 
 import imgBgHeader from '../../assets/bg.png';
-
-import img2 from '../../assets/ImgBgOfe-2.png';
-import img3 from '../../assets/ImgBgOfe-1.png';
-import img4 from '../../assets/ImgBgOfe.png';
-import { Ofertas } from '../../components/Ofertas';
 import { AreaEmp } from '../../components/AreaEmp';
-import { Background } from '../../components/Background'
+import { Background } from '../../components/Background';
 import { BtnDrawer } from '../../components/BtnDrawer';
 import { BtnShare } from '../../components/BtnShare';
+import { ListOfertas } from '../../components/ListOfertas';
+import { ListOfertas2 } from '../../components/ListOfertas2';
 import { styles } from './styles';
 
 export function Home() {
@@ -67,45 +65,44 @@ export function Home() {
 
   const [ceveja, setCeveja] = useState([
     {key: '1', title: "[Novo] Pilsen Premium", desc: "Mas pensa num trem bão...", valor: "12,99"},
-    {key: '1', title: "[Novo] Pilsen Premium", desc: "Mas pensa num trem bão...", valor: "12,99"},
-    {key: '2', title: "[Novo] Pilsen Premium", desc: "Mas pensa num trem bão...", valor: "12,99"},
-    {key: '3', title: "[Novo] Pilsen Premium", desc: "Mas pensa num trem bão...", valor: "12,99"},
-    {key: '4', title: "[Novo] Pilsen Premium", desc: "Mas pensa num trem bão...", valor: "12,99"},
+    {key: '2', title: "[Novo] Ipa", desc: "Precisa apenas de um gole", valor: "19,99"},
+    {key: '3', title: "Pilsen Gold", desc: "Tome e nunca mais esqueça!", valor: "14,99"},
+    {key: '4', title: "Carioquinha", desc: "Ótima com salgadinhos", valor: "22,99"},
   ]);
 
 
   return (
     <Background>
-      <View style={styles.container}>
-        <View>
-          <Image
-            source={imgBgHeader}
-            style={styles.imgBgHeader}
-          />
-          <BtnDrawer/>
-          <View style={styles.areaShare}>
-            <BtnShare/>
+        <View style={styles.container}>
+          <View>
+            <Image
+              source={imgBgHeader}
+              style={styles.imgBgHeader}
+            />
+            <BtnDrawer/>
+            <View style={styles.areaShare}>
+              <BtnShare/>
+            </View>
+          </View>
+          <View>
+            <AreaEmp title={"Rabit - Cerveja Artesanais"}/>
+          </View>
+          <View>
+              <Text style={styles.title}>
+                Ofertas
+              </Text>
+
+              <ListOfertas
+                data={ceveja}
+                horizontal={true}
+                showsHorizontalScrollIndicator={false}
+              />
+              <ListOfertas2
+                data={ceveja}
+                showsVerticalScrollIndicator={false}
+              />          
           </View>
         </View>
-        <View>
-          <AreaEmp title={"Rabit - Cerveja Artesanais"}/>
-        </View>
-        <View>
-          <Text style={styles.title}>
-            Ofertas
-          </Text>
-          <FlatList
-            data={ceveja}
-            style={styles.matches}
-            horizontal={true}
-            showsHorizontalScrollIndicator={false}
-            keyExtractor={ item => item.key}
-            renderItem={({ item }) => (
-              <Ofertas data={item}/> 
-            )}
-          />  
-        </View>
-      </View>
-    </Background>
+      </Background>
   );
 }

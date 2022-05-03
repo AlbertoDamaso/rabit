@@ -63,6 +63,7 @@ function AuthProvider({ children }){
         })
     }
 
+    //Sair
     async function signOut(){
         await firebase.auth().signOut();
         setUser(null);

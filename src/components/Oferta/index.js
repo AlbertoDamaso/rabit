@@ -9,7 +9,7 @@ import { styles } from './styles';
 
 import img from '../../assets/ImgBgOfe-3.png';
 
-export function Ofertas({ data }){
+export function Oferta({ data }){
   return (
     // <TWF onLongPress={ () => deleteItem(data)}>
     <TWF>
