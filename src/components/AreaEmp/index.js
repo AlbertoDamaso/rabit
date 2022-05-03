@@ -5,7 +5,7 @@ import logo from '../../assets/Logo.png';
 
 import { styles } from './styles';
 
-export function AreaEmp({title}) {
+export function AreaEmp({ title }) {
   return (
     <View style={styles.container}>
         <View style={styles.formatLogo}>
@@ -15,7 +15,7 @@ export function AreaEmp({title}) {
           />
         </View>
         <Text style={styles.title}>
-            {title}
+          { title }
         </Text>
     </View>
   );
