@@ -13,7 +13,7 @@ export function ListOfertas({ data, ...rest }) {
         style={styles.matches}
         keyExtractor={ item => item.key}
         renderItem={({ item }) => (
-            <Oferta data={item}/> 
+          <Oferta data={item}/> 
         )}
         {...rest}
     />  

@@ -5,14 +5,24 @@ import {
   Image,
   TouchableWithoutFeedback as TWF
 } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+
 import { styles } from './styles';
 
 import img from '../../assets/ImgBgOfe-3.png';
 
 export function Oferta({ data }){
+  const navigation = useNavigation();
+
+  function handleStartOrder(){
+    navigation.navigate('StartOrder');
+  }
+
   return (
-    // <TWF onLongPress={ () => deleteItem(data)}>
-    <TWF>
+    <TWF
+      onPress={(handleStartOrder)}
+    // onLongPress={ () => deleteItem(data)}
+    >
       <View style={styles.container}>
         <View style={styles.areaImg}>
           <Image

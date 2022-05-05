@@ -5,23 +5,33 @@ import {
   Image,
   TouchableWithoutFeedback as TWF
 } from 'react-native';
-import { styles } from './styles';
-
-import img from '../../assets/ImgBgOfe-3.png';
+import { useNavigation } from '@react-navigation/native';
 import { Feather } from '@expo/vector-icons';
+
+
+import { styles } from './styles';
 import { theme } from '../../global/styles/theme';
+import img from '../../assets/ImgBgOfe-3.png';
 
 export function Oferta2({ data }){
+  const navigation = useNavigation();
+
+  function handleStartOrder(){
+    navigation.navigate('StartOrder');
+  }
+
   return (
-    // <TWF onLongPress={ () => deleteItem(data)}>
-    <TWF>
+    <TWF
+      onPress={(handleStartOrder)}
+    // onLongPress={ () => deleteItem(data)}
+    >
         <View style={styles.container}>
             <View style={styles.areaTxt}>
                 <Text style={styles.title}>
-                {data.title}
+                  {data.title}
                 </Text>
                 <Text style={styles.text}>
-                {data.desc}
+                  {data.desc}
                 </Text>
                 <View style={styles.serve}>
                   <Feather
@@ -34,7 +44,7 @@ export function Oferta2({ data }){
                   </Text> 
                 </View>
                 <Text style={styles.textValor}> 
-                {data.valor} 
+                  {data.valor} 
                 </Text>
             </View>
             <View style={styles.areaImg}>

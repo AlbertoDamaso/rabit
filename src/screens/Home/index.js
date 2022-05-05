@@ -4,9 +4,10 @@ import {
   View,
   Text,
   Image,
-  ScrollView,
   SafeAreaView
 } from 'react-native';
+import { ScrollView } from 'react-native-virtualized-view';
+
 
 import imgBgHeader from '../../assets/bg.png';
 import { AreaEmp } from '../../components/AreaEmp';
@@ -18,7 +19,6 @@ import { ListOfertas2 } from '../../components/ListOfertas2';
 import { styles } from './styles';
 
 export function Home() {
-  // const { signOut } = useContext(AuthContext);
   // const [user, setUser] = useState([]);
 
   // useEffect(() =>{
@@ -72,8 +72,10 @@ export function Home() {
 
 
   return (
-    <Background>
-        <View style={styles.container}>
+    <Background>      
+      <SafeAreaView style={styles.container}>
+        {/*Se tiver mais de um ScrollView intale a biblioteca deste a baixo*/}
+        <ScrollView>
           <View>
             <Image
               source={imgBgHeader}
@@ -84,25 +86,29 @@ export function Home() {
               <BtnShare/>
             </View>
           </View>
+
           <View>
             <AreaEmp title={"Rabit - Cerveja Artesanais"}/>
           </View>
-          <View>
-              <Text style={styles.title}>
-                Ofertas
-              </Text>
 
-              <ListOfertas
-                data={ceveja}
-                horizontal={true}
-                showsHorizontalScrollIndicator={false}
-              />
-              <ListOfertas2
-                data={ceveja}
-                showsVerticalScrollIndicator={false}
-              />          
+          <View>
+            <Text style={styles.title}>
+              Ofertas
+            </Text>
+
+            <ListOfertas
+              data={ceveja}
+              horizontal={true}
+              showsHorizontalScrollIndicator={false}
+            />
+            <ListOfertas2
+              data={ceveja}
+              showsVerticalScrollIndicator={false}
+            />          
           </View>
-        </View>
-      </Background>
+
+        </ScrollView>
+      </SafeAreaView>
+    </Background>
   );
 }

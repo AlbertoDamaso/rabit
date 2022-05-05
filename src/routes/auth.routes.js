@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import { SignIn } from '../screens/SignIn';
 import { SignUp } from '../screens/SignUp';
+import { StartOrder } from '../screens/StartOrder';
 import { AppRoutes } from '../routes/app.routes';
 
 const AuthStack = createNativeStackNavigator();
@@ -27,6 +28,11 @@ export function AuthRoutes(){
         name="AppRoutes"
         component={AppRoutes}   
       />
+      <AuthStack.Screen 
+        name="StartOrder"
+        component={StartOrder}   
+      />      
+
     </AuthStack.Navigator>
   );
 }
