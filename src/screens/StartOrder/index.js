@@ -6,6 +6,7 @@ import {
 } from 'react-native';
 import { ScrollView } from 'react-native-virtualized-view';
 import { Feather } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
 
 import imgBgHeader from '../../assets/ImgBgOfe-3.png';
 import { Background } from '../../components/Background';
@@ -19,6 +20,12 @@ import { AreaObs } from '../../components/AreaObs';
 import { BtnGoBack } from '../../components/BtnGoBack';
 
 export function StartOrder() {
+  const navigation = useNavigation();
+
+  function handledOrder(){
+    navigation.navigate('Order')
+  }
+
   return (
     <Background>      
       <ScrollView>
@@ -82,6 +89,7 @@ export function StartOrder() {
           <BtnCount/>
 
           <Button
+            onPress={handledOrder}
             title={"Reservar"}
             activeOpacity={0.7}
           />

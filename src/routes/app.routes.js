@@ -1,9 +1,11 @@
 import React from 'react';
 
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import { Ionicons, Feather, MaterialIcons } from '@expo/vector-icons';
+import { MaterialIcons } from '@expo/vector-icons';
 
 import { Home } from '../screens/Home';
+import { Order } from '../screens/Order';
+import { Opine } from '../screens/Opine';
 import { CustomDrawer } from '../components/CustomDrawer';
 import { theme } from '../global/styles/theme';
 
@@ -17,7 +19,7 @@ export function AppRoutes() {
         headerShown: false,
         drawerActiveTintColor: theme.colors.dark,
         drawerActiveBackgroundColor: theme.colors.primary,
-        drawerInactiveBackgroundColor: theme.colors.secundaryMenos,
+        drawerInactiveBackgroundColor: theme.colors.secundaryMais,
         drawerInactiveTintColor: theme.colors.light,
 
         drawerStyle:{
@@ -50,7 +52,33 @@ export function AppRoutes() {
             />
           ),
         }}
-      />      
+      />   
+      <AppDrawer.Screen 
+        name="Reservados" 
+        component={Order}
+        options={{
+          drawerIcon: ({color}) => (
+            <MaterialIcons
+              name="shopping-cart"
+              color={color}
+              size={24}
+            />
+          ),
+        }}
+      />
+      <AppDrawer.Screen 
+        name="Opinar" 
+        component={Opine}
+        options={{
+          drawerIcon: ({color}) => (
+            <MaterialIcons
+              name="shopping-cart"
+              color={color}
+              size={24}
+            />
+          ),
+        }}
+      />                    
     </AppDrawer.Navigator>
     );
 }

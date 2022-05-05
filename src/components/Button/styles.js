@@ -3,10 +3,10 @@ import { theme } from '../../global/styles/theme';
 
 export const styles = StyleSheet.create({
   click: {
-    alignSelf:'center',
     width: '80%',
     height: 45,
     borderWidth:1,    
+    alignSelf:'center',
     alignItems: 'center',
     flexDirection: 'row',
     borderRadius: 25,
