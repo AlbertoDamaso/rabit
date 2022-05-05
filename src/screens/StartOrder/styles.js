@@ -8,7 +8,7 @@ export const styles = StyleSheet.create({
   },
   imgBgHeader: {
     width: '100%',
-    height: 440,
+    height: 380,
     resizeMode: 'stretch',
     opacity: 0.7,
   },
@@ -22,11 +22,11 @@ export const styles = StyleSheet.create({
   },
   body: {
     width: '100%',
-    height: 218,
+    height: 200,
     backgroundColor: theme.colors.secundaryMais,
   },
   title: {
-    height: 36,
+    height: 30,
     marginTop: 22,
     marginHorizontal: 18,
     fontFamily: theme.fonts.title,
@@ -75,6 +75,12 @@ export const styles = StyleSheet.create({
   },
   areaBtn: {
     width: '80%',
+    alignSelf: 'flex-start',
+    marginTop: 5,
+    marginHorizontal: 20,
+    flexDirection: 'row',
   },
+
+
 
 });

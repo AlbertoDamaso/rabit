@@ -4,27 +4,31 @@ import {
   Image,
   Text,
 } from 'react-native';
+import { ScrollView } from 'react-native-virtualized-view';
 import { Feather } from '@expo/vector-icons';
 
 import imgBgHeader from '../../assets/ImgBgOfe-3.png';
 import { Background } from '../../components/Background';
-import { BtnDrawer } from '../../components/BtnDrawer';
 import { BtnLike } from '../../components/BtnLike';
 import { BtnShare } from '../../components/BtnShare';
 import { Button } from '../../components/Button';
 import { theme } from '../../global/styles/theme';
 import { styles } from './styles';
+import { BtnCount } from '../../components/BtnCount';
+import { AreaObs } from '../../components/AreaObs';
+import { BtnGoBack } from '../../components/BtnGoBack';
 
 export function StartOrder() {
   return (
     <Background>      
+      <ScrollView>
         <View>
             <Image
               source={imgBgHeader}
               style={styles.imgBgHeader}
             />
 
-            <BtnDrawer/>
+            <BtnGoBack/>
 
             <View style={styles.areaShare}>
               <BtnShare/>
@@ -41,7 +45,7 @@ export function StartOrder() {
             [Novo] Pilsen Premium
           </Text>
 
-          <Text style={[styles.bodyInfo, {height: 33, fontFamily: theme.fonts.title, marginHorizontal:20}]}>
+          <Text style={[styles.bodyInfo, {height: 25, fontFamily: theme.fonts.title, marginHorizontal:20}]}>
             O mais pedido! Contém:
           </Text>
           <Text style={styles.bodyInfo}>
@@ -75,12 +79,16 @@ export function StartOrder() {
         </View>
 
         <View style={styles.areaBtn}>
-          {/* Criar Contado components */}
+          <BtnCount/>
+
           <Button
             title={"Reservar"}
             activeOpacity={0.7}
           />
         </View>
+
+        <AreaObs/>
+      </ScrollView>
     </Background>        
   );
 }

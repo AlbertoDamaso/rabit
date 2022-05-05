@@ -8,7 +8,7 @@ export const styles = StyleSheet.create({
     width: '80%',
     height: 45,
     backgroundColor: theme.colors.secundaryMenos,
-    color: theme.colors.dark,
+    color: theme.colors.light,
     borderRadius: 5,
     fontFamily: theme.fonts.text,
     fontSize: 19,
