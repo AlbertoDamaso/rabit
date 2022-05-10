@@ -23,7 +23,7 @@ export function StartOrder() {
   const navigation = useNavigation();
 
   function handledOrder(){
-    navigation.navigate('Order')
+    navigation.navigate('Reservados')
   }
 
   return (

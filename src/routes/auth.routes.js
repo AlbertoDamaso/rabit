@@ -35,13 +35,9 @@ export function AuthRoutes(){
         component={StartOrder}   
       /> 
       <AuthStack.Screen 
-        name="Order"
-        component={Order}   
-      />              
-      <AuthStack.Screen 
         name="Opinar"
         component={Opine}   
-      /> 
+      />       
     </AuthStack.Navigator>
   );
 }

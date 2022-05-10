@@ -3,7 +3,7 @@ import {
   TouchableOpacity as TO
 } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, DrawerActions } from '@react-navigation/native';
 
 import { styles } from './styles';
 import { theme } from '../../global/styles/theme';
@@ -13,7 +13,7 @@ export function BtnDrawer() {
 
   return (
     <TO 
-      onPress={ () => navigation.toggleDrawer() }
+      onPress={ () => navigation.dispatch(DrawerActions.toggleDrawer()) }
       style={styles.bgBtn}
     >
       <FontAwesome

@@ -1,11 +1,11 @@
 import React from 'react';
 
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import { MaterialIcons } from '@expo/vector-icons';
+import { Feather, MaterialIcons } from '@expo/vector-icons';
 
 import { Home } from '../screens/Home';
 import { Order } from '../screens/Order';
-import { Opine } from '../screens/Opine';
+import { Profile } from '../screens/Profile';
 import { CustomDrawer } from '../components/CustomDrawer';
 import { theme } from '../global/styles/theme';
 
@@ -67,18 +67,19 @@ export function AppRoutes() {
         }}
       />
       <AppDrawer.Screen 
-        name="Opinar" 
-        component={Opine}
+        name="Perfil" 
+        component={Profile}
         options={{
           drawerIcon: ({color}) => (
-            <MaterialIcons
-              name="shopping-cart"
+            <Feather
+              name="user"
               color={color}
               size={24}
             />
           ),
         }}
-      />                    
+      />      
+                 
     </AppDrawer.Navigator>
     );
 }
