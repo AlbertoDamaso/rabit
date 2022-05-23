@@ -1,30 +1,32 @@
 import React, { useState, useContext } from 'react';
 import {
   View,
-  Text
+  Text,
+  Keyboard,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-import { Background } from '../../components/Background';
 import { Logo } from '../../components/Logo';
 import { Input } from '../../components/Input';
+import { MaskInput } from '../../components/MaskInput';
 import { Button } from '../../components/Button';
-import { AuthContext } from '../../contexts/auth' 
 
 import { styles } from '../SignIn/styles';
+import { AuthContext } from '../../contexts/auth'; 
+
 
 export function SignUp() {
   const navigation = useNavigation();
 
   const [zap, setZap] = useState('');
-  const [nome, setNome] = useState('');
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   
-  const {signUp} = useContext(AuthContext);
+  const { signUp } = useContext(AuthContext);
 
   function handleSignUp(){
-    signUp(email, password, nome, zap)   
+    signUp(email, password, name, zap);
   }
 
   function handleSignIn(){
@@ -42,10 +44,10 @@ export function SignUp() {
           onSubmitEditing={ () => Keyboard.dismiss()}
           autoCorrect={false}
           autoCapitalize="none"
-          value={nome}
-          onChangeText={ (text) => setNome(text) }
+          value={name}
+          onChangeText={ (text) => setName(text) }
         />
-        <Input
+        <MaskInput
           placeholder="WhatsApp"
           returnKeyType="next"
           onSubmitEditing={ () => Keyboard.dismiss()}
@@ -84,9 +86,9 @@ export function SignUp() {
           title={"Cadastrar"}
           activeOpacity={0.7}
         />
-        <Text style={styles.link}>
+        {/* <Text style={styles.link}>
           Cadastrar por outros meios!
-        </Text>
+        </Text> */}
         <Text 
           style={styles.link}
           onPress={(handleSignIn)}

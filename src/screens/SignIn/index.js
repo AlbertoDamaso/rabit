@@ -1,7 +1,8 @@
 import React, { useState, useContext } from 'react';
 import {
   View,
-  Text
+  Text,
+  Keyboard,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
@@ -11,17 +12,15 @@ import { Button } from '../../components/Button';
 import { AuthContext } from '../../contexts/auth';
 
 import { styles } from './styles';
-import { Background } from '../../components/Background';
 
 export function SignIn() {
   const navigation = useNavigation();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const { signIn, loadingAuth } = useContext(AuthContext);
+  const { signIn } = useContext(AuthContext);
 
   function handleLogin(){
-    //signIn(email, password);
-    navigation.navigate('AppRoutes');
+    signIn(email, password);
   }
 
   function handleSignUp(){
@@ -61,9 +60,9 @@ export function SignIn() {
           title={"Entrar"}
           activeOpacity={0.7}
         />
-        <Text style={styles.link}>
+        {/* <Text style={styles.link}>
           Logar por outros meios!
-        </Text>
+        </Text> */}
         <Text 
           style={styles.link}
           onPress={(handleSignUp)}

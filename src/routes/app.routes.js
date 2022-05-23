@@ -6,6 +6,8 @@ import { Feather, MaterialIcons } from '@expo/vector-icons';
 import { Home } from '../screens/Home';
 import { Order } from '../screens/Order';
 import { Profile } from '../screens/Profile';
+import { StartOrder } from '../screens/StartOrder';
+import { Opine } from '../screens/Opine';
 import { CustomDrawer } from '../components/CustomDrawer';
 import { theme } from '../global/styles/theme';
 
@@ -79,7 +81,20 @@ export function AppRoutes() {
           ),
         }}
       />      
-                 
+      <AppDrawer.Screen 
+        name="StartOrder"
+        component={StartOrder}  
+        options={{
+          drawerLabel: () => null
+        }}
+      />         
+      <AppDrawer.Screen 
+        name="Opinar"
+        component={Opine}  
+        options={{
+          drawerLabel: () => null
+        }}
+      />                        
     </AppDrawer.Navigator>
     );
 }
