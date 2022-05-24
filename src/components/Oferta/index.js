@@ -9,10 +9,9 @@ import { useNavigation } from '@react-navigation/native';
 
 import { styles } from './styles';
 
-import img from '../../assets/ImgBgOfe-3.png';
-
 export function Oferta({ data }){
   const navigation = useNavigation();
+  
 
   function handleStartOrder(){
     navigation.navigate('StartOrder');
@@ -26,7 +25,7 @@ export function Oferta({ data }){
       <View style={styles.container}>
         <View style={styles.areaImg}>
           <Image
-            source={img}//source={{uri:data.image}}
+            source={{uri:data.image}}
             style={styles.image}
           />  
         </View>

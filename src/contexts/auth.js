@@ -1,11 +1,27 @@
-import React, { useState, createContext } from 'react';
+import React, { useState, createContext, useEffect } from 'react';
 import firebase from '../services/firebaseConnection';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export const AuthContext = createContext({})
 
 function AuthProvider({ children }){
     const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(true);
     const [loadingAuth, setLoadingAuth] = useState(false);
+
+    //Funcao para percistencia
+    useEffect(() =>{
+        async function loadStorage(){
+            const storageUser = await AsyncStorage.getItem('Auth_user');
+
+            if(storageUser){
+                setUser(JSON.parse(storageUser));
+                setLoading(false);
+            }
+            setLoading(false);
+        }
+        loadStorage();
+    }, [])
 
     //Funcao para logar o usuario
     async function signIn(email, password) {
@@ -21,6 +37,7 @@ function AuthProvider({ children }){
                     email: value.user.email,
                 };
                 setUser(data);
+                storageUser(data);
                 setLoadingAuth(false);
             })
         })
@@ -48,6 +65,7 @@ function AuthProvider({ children }){
                     zap: zap,
                 };
                 setUser(data);
+                storageUser(data);
                 setLoadingAuth(false);
             })
         })
@@ -69,14 +87,21 @@ function AuthProvider({ children }){
         })
     }
 
+    async function storageUser(data){
+        await AsyncStorage.setItem('Auth_user', JSON.stringify(data));
+    }
+
     //Sair
-    async function signOut(){
+    async function signOut(){        
         await firebase.auth().signOut();
-        setUser(null);
+        await AsyncStorage.clear()
+        .then( () => {
+            setUser(null);
+        })
     }
 
     return(
-        <AuthContext.Provider value={{ signed: !!user, user, loadingAuth, signUp, signIn, signOut }}>
+        <AuthContext.Provider value={{ signed: !!user, user, loading, loadingAuth, signUp, signIn, signOut }}>
             {children}
         </AuthContext.Provider>
     );

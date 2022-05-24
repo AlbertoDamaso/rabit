@@ -12,7 +12,7 @@ import { ImgProfile } from '../ImgProfile';
 import { styles } from './styles';
 
 export function CustomDrawer(props) {
-    const { signOut } = useContext(AuthContext);
+    const { user, signOut } = useContext(AuthContext);
 
   return (
     <DrawerContentScrollView {...props}>
@@ -20,21 +20,22 @@ export function CustomDrawer(props) {
             <ImgProfile/>
 
             <Text style={styles.title}>
-               Alberto
+               {user && user.name}
             </Text>
             <Text style={styles.text}>
-               356tarefas
+               6 reservas
             </Text>
         </View>
 
         <View style={styles.lineDivider} />
 
         <DrawerItemList {...props}/>
-
+        
+        <View style={styles.lineDivider} />
         <DrawerItem
             {...props}
             label="Sair"
-            style={{marginHorizontal: 20}}
+            style={{marginHorizontal: 20, marginTop: -15}}
             labelStyle={{fontSize: 19, fontWeight: 'bold', color:"#f1f1f1", marginLeft: -25}}
             icon={() =>
               <FontAwesome5

@@ -94,7 +94,8 @@ export function AppRoutes() {
         options={{
           drawerLabel: () => null
         }}
-      />                        
+      />      
+                        
     </AppDrawer.Navigator>
     );
 }

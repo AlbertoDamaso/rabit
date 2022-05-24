@@ -6,7 +6,6 @@ import {
 } from 'react-native';
 import { ScrollView } from 'react-native-virtualized-view';
 import { FontAwesome } from '@expo/vector-icons';
-import { useNavigation } from '@react-navigation/native';
 
 import imgBgHeader from '../../assets/ImgBgOfe-3.png';
 import { Background } from '../../components/Background';

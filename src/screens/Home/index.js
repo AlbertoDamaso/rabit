@@ -64,10 +64,10 @@ export function Home() {
   // }
 
   const [ceveja, setCeveja] = useState([
-    {key: '1', title: "[Novo] Pilsen Premium", desc: "Mas pensa num trem bão...", valor: "12,99"},
-    {key: '2', title: "[Novo] Ipa", desc: "Precisa apenas de um gole", valor: "19,99"},
-    {key: '3', title: "Pilsen Gold", desc: "Tome e nunca mais esqueça!", valor: "14,99"},
-    {key: '4', title: "Carioquinha", desc: "Ótima com salgadinhos", valor: "22,99"},
+    {key: '1', image:"https://i.ibb.co/xmqzfxX/Img-Bg-Ofe-3.png", title: "[Novo] Pilsen Premium", desc: "Mas pensa num trem bão...", valor: "12,99"},
+    {key: '2', image:"https://i.ibb.co/gvjtd9B/ImgBgOfe.png",title: "[Novo] Ipa", desc: "Precisa apenas de um gole", valor: "19,99"},
+    {key: '3', image:"https://i.ibb.co/MsFQqts/Img-Bg-Ofe-1.png",title: "Pilsen Gold", desc: "Tome e nunca mais esqueça!", valor: "14,99"},
+    {key: '4', image:"https://i.ibb.co/jHyHwLY/Img-Bg-Ofe-2.png",title: "Carioquinha", desc: "Ótima com salgadinhos", valor: "22,99"},
   ]);
 
 

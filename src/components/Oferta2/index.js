@@ -8,10 +8,8 @@ import {
 import { useNavigation } from '@react-navigation/native';
 import { Feather } from '@expo/vector-icons';
 
-
 import { styles } from './styles';
 import { theme } from '../../global/styles/theme';
-import img from '../../assets/ImgBgOfe-3.png';
 
 export function Oferta2({ data }){
   const navigation = useNavigation();
@@ -49,7 +47,7 @@ export function Oferta2({ data }){
             </View>
             <View style={styles.areaImg}>
                 <Image
-                  source={img}//source={{uri:data.image}}
+                  source={{uri:data.image}}
                   style={styles.image}
                 />  
             </View>
