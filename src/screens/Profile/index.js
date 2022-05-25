@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {
   View,
   Text
@@ -9,10 +9,11 @@ import { Background } from '../../components/Background';
 import { BtnDrawer } from '../../components/BtnDrawer';
 import { ImgProfile } from '../../components/ImgProfile';
 import { Button } from '../../components/Button';
-import { theme } from '../../global/styles/theme';
+import { AuthContext } from '../../contexts/auth';
 import { styles } from './styles';
 
 export function Profile() {
+  const { user } = useContext(AuthContext);
   const navigation = useNavigation();
 
   function handleHome(){
@@ -30,7 +31,7 @@ export function Profile() {
             style={styles.imageProfile}
           /> 
           <Text style={styles.nameProfile}>
-            Alberto Matheus  
+            {user && user.name}  
           </Text>   
           <Text style={styles.revProfile}>
             20 reservas

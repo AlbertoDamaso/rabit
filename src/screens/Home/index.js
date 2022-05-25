@@ -8,7 +8,6 @@ import {
 } from 'react-native';
 import { ScrollView } from 'react-native-virtualized-view';
 
-
 import imgBgHeader from '../../assets/bg.png';
 import { AreaEmp } from '../../components/AreaEmp';
 import { Background } from '../../components/Background';
