@@ -15,7 +15,7 @@ export function Oferta2({ data }){
   const navigation = useNavigation();
 
   function handleStartOrder(){
-    navigation.navigate('StartOrder');
+    navigation.navigate('StartOrder',data);
   }
 
   return (

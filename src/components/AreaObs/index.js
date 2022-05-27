@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Text,
@@ -10,6 +10,7 @@ import { theme } from '../../global/styles/theme';
 import { styles } from './styles';
 
 export function AreaObs() {
+  const [obs, setObs] = useState('')
   return (
     <View style={styles.areaObs}>
         <View style={styles.titleObs}>
@@ -30,11 +31,13 @@ export function AreaObs() {
 
         <View style={styles.txtArea}>
             <TextInput
-                editable
-                maxLength={140}
-                placeholder="Ex.: Retirada no local, as 14h."
-                placeholderTextColor={theme.colors.secundary}
-                style={styles.inputTxt}
+              editable
+              maxLength={140}
+              placeholder="Ex.: Retirada no local, as 14h."
+              placeholderTextColor={theme.colors.secundary}
+              style={styles.inputTxt}
+              value={obs}
+              onChangeText={ (text) => setObs(text) }
             />
         </View>
     </View>

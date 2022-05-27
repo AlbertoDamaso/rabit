@@ -8,10 +8,10 @@ import { styles } from './styles';
 export function ImgProfile({...rest}) {
   return (
     <Image
-        source={imgProfile}
-        style={styles.imageProfile}
-        resizeMode="cover"
-        {...rest}
+      source={imgProfile}
+      style={styles.imageProfile}
+      resizeMode="cover"
+      {...rest}
     />
 
   );

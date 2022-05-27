@@ -34,23 +34,23 @@ export function SignIn() {
       <View style={styles.areaInput}>
 
         <Input
-        placeholder="E-mail"
-        returnKeyType="next"
-        onSubmitEditing={ () => Keyboard.dismiss()}
-        autoCorrect={false}
-        autoCapitalize="none"
-        value={email}
-        onChangeText={ (text) => setEmail(text) }
+          placeholder="E-mail"
+          returnKeyType="next"
+          onSubmitEditing={ () => Keyboard.dismiss()}
+          autoCorrect={false}
+          autoCapitalize="none"
+          value={email}
+          onChangeText={ (text) => setEmail(text) }
         />
         <Input
-        placeholder="Senha"
-        returnKeyType="next"
-        isSecure={true}
-        onSubmitEditing={ () => Keyboard.dismiss()}
-        autoCapitalize="none"
-        value={password}
-        onChangeText={ (text) => setPassword(text) }
-        secureTextEntry={true}
+          placeholder="Senha"
+          returnKeyType="next"
+          isSecure={true}
+          onSubmitEditing={ () => Keyboard.dismiss()}
+          autoCapitalize="none"
+          value={password}
+          onChangeText={ (text) => setPassword(text) }
+          secureTextEntry={true}
         />
       </View>
 

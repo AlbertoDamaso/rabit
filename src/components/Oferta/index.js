@@ -11,10 +11,9 @@ import { styles } from './styles';
 
 export function Oferta({ data }){
   const navigation = useNavigation();
-  
 
   function handleStartOrder(){
-    navigation.navigate('StartOrder');
+    navigation.navigate('StartOrder', data);
   }
 
   return (
