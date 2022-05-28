@@ -1,4 +1,4 @@
-import React, {useState, useMemo} from 'react';
+import React from 'react';
 import {
     View,
     Text,
@@ -9,17 +9,7 @@ import { AntDesign } from '@expo/vector-icons';
 import { styles } from './styles';
 import { theme } from '../../global/styles/theme';
 
-export function BtnCount() {
-    const [count, setCount] = useState(1);
-
-    function minus(){
-        if(count > 0){
-            setCount(count-1)
-        }
-    }
-    function plus(){
-        setCount(count+1)
-    }
+export function BtnCount({minus, plus, count}) {
 
 
   return (

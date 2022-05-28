@@ -1,19 +1,19 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import {
   View,
   Image,
   Text,
+  Keyboard
 } from 'react-native';
 import { ScrollView } from 'react-native-virtualized-view';
 import { Feather } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 
-import imgBgHeader from '../../assets/ImgBgOfe-3.png';
 import { Background } from '../../components/Background';
 import { BtnLike } from '../../components/BtnLike';
 import { BtnShare } from '../../components/BtnShare';
 import { Button } from '../../components/Button';
-import { BtnCount } from '../../components/BtnCount';
+import { BtnCount }  from '../../components/BtnCount';
 import { AreaObs } from '../../components/AreaObs';
 import { BtnGoBack } from '../../components/BtnGoBack';
 import { AppContext } from '../../contexts/app';
@@ -23,15 +23,26 @@ import { styles } from './styles';
 export function StartOrder(data) {
   const navigation = useNavigation();
   const { resv } = useContext(AppContext);
+  const [count, setCount] = useState(1);
+  const [obs, setObs] = useState('');
 
-  
+  //Contadores
+  function minus(){
+      if(count > 0){
+          setCount(count-1)
+      }
+  }
+  function plus(){
+      setCount(count+1)
+  }
+
   function handledOrder(){
     let keyBeer = data.route.params.key;
     
-    console.log(`${keyBeer}`);
     resv(count, obs, keyBeer);
     navigation.navigate('Reservados');
   }
+
 
   return (
     <Background>      
@@ -85,7 +96,11 @@ export function StartOrder(data) {
         </View>
 
         <View style={styles.areaBtn}>
-          <BtnCount/>
+          <BtnCount 
+            minus={minus}
+            plus={plus}
+            count={count}
+          />
 
           <Button
             onPress={handledOrder}
@@ -94,7 +109,15 @@ export function StartOrder(data) {
           />
         </View>
 
-        <AreaObs/>
+        <AreaObs
+          maxLength={140}
+          returnKeyType="next"
+          onSubmitEditing={ () => Keyboard.dismiss()}
+          autoCorrect={false}
+          autoCapitalize="none"          
+          value={obs}
+          onChangeText={ (text) => setObs(text) }
+        />
       </ScrollView>
     </Background>        
   );

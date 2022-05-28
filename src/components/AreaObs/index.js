@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   View,
   Text,
@@ -9,8 +9,8 @@ import { Feather } from '@expo/vector-icons';
 import { theme } from '../../global/styles/theme';
 import { styles } from './styles';
 
-export function AreaObs() {
-  const [obs, setObs] = useState('')
+export function AreaObs({ ...rest }) {
+  
   return (
     <View style={styles.areaObs}>
         <View style={styles.titleObs}>
@@ -30,14 +30,11 @@ export function AreaObs() {
         </View>
 
         <View style={styles.txtArea}>
-            <TextInput
-              editable
-              maxLength={140}
+            <TextInput              
               placeholder="Ex.: Retirada no local, as 14h."
               placeholderTextColor={theme.colors.secundary}
               style={styles.inputTxt}
-              value={obs}
-              onChangeText={ (text) => setObs(text) }
+              {...rest}
             />
         </View>
     </View>
