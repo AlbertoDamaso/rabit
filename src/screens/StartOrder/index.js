@@ -40,6 +40,9 @@ export function StartOrder(data) {
     let keyBeer = data.route.params.key;
     
     resv(count, obs, keyBeer);
+
+    setCount(1);
+    setObs('');
     navigation.navigate('Reservados');
   }
 
