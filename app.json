@@ -27,6 +27,8 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": "Projeto para controle de reservas das cervejarias atesanais.",
+    "githubUrl": "https://github.com/AlbertoDamaso/rabit.git"
   }
 }
