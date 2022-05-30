@@ -18,14 +18,14 @@ import { styles } from './styles';
 import { BtnGoBack } from '../../components/BtnGoBack';
 
 
-export function Opine() {
+export function Opine(data) {
   return (
     <Background>      
       <ScrollView>
         <View>
 
           <Image
-            source={imgBgHeader}
+            source={{uri:data.route.params.image}}
             style={styles.imgBgHeader}
           />
 
@@ -43,7 +43,7 @@ export function Opine() {
 
         <View style={styles.body}>
           <Text style={styles.title}>
-            [Novo] Pilsen Premium
+            {data.route.params.title}
           </Text>
 
           <AreaOpine/>

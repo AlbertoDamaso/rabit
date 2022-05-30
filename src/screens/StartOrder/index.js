@@ -36,10 +36,13 @@ export function StartOrder(data) {
       setCount(count+1)
   }
 
+
   function handledOrder(){
-    let keyBeer = data.route.params.key;
+    let key = data.route.params.key;
+    let title = data.route.params.title;
+    let image = data.route.params.image;
     
-    resv(count, obs, keyBeer);
+    resv(count, obs, title, image,key);
 
     setCount(1);
     setObs('');
@@ -112,15 +115,18 @@ export function StartOrder(data) {
           />
         </View>
 
-        <AreaObs
-          maxLength={140}
-          returnKeyType="next"
-          onSubmitEditing={ () => Keyboard.dismiss()}
-          autoCorrect={false}
-          autoCapitalize="none"          
-          value={obs}
-          onChangeText={ (text) => setObs(text) }
-        />
+        <View>
+          <AreaObs
+            editable
+            maxLength={140}
+            returnKeyType="next"
+            onSubmitEditing={ () => Keyboard.dismiss()}
+            autoCorrect={false}
+            autoCapitalize="none"          
+            value={obs}
+            onChangeText={ (text) => setObs(text) }
+          />
+        </View>
       </ScrollView>
     </Background>        
   );

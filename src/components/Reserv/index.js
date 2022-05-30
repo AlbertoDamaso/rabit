@@ -17,7 +17,7 @@ export function Reserv({ data }){
   const navigation = useNavigation();
 
   function handleOpine(){
-    navigation.navigate('Opinar');
+    navigation.navigate('Opinar', data);
   }
 
   return (
@@ -25,7 +25,7 @@ export function Reserv({ data }){
     <View style={styles.container}>
         <View style={styles.areaImg}>
             <Image
-                source={img}//source={{uri:data.image}}
+                source={{uri:data.image}}
                 style={styles.image}
             />  
         </View>            
@@ -46,10 +46,10 @@ export function Reserv({ data }){
 
             <View style={styles.info}>
                 <Text style={styles.text}>
-                    {data.reserv}
+                    {data.quant} reservas
                 </Text>
                 <Text style={styles.text}>
-                    {data.retir}
+                    {data.quantRetir} retiradas
                 </Text>
             </View>  
 

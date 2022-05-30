@@ -1,23 +1,49 @@
-import React, { useState } from 'react';
-
+import React, { useState, useContext, useEffect } from 'react';
 import {
   View,
   Text,
 } from 'react-native';
+import firebase from '../../services/firebaseConnection';
+
 import { Background } from '../../components/Background';
 import { BtnDrawer } from '../../components/BtnDrawer';
 import { ListReserv } from '../../components/ListReserv';
 
 import { styles } from './styles';
+import { AuthContext } from '../../contexts/auth';
 
 export function Order() {
+  const [reservado, setReservado] = useState([]);
 
-    const [ceveja, setCeveja] = useState([
-        {key: '1', title: "[Novo] Pilsen Premium", reserv: "2 reservadas", retir: "2 retiradas"},
-        {key: '2', title: "[Novo] Ipa", reserv: "6 reservadas", retir: "1 retiradas"},
-        {key: '3', title: "Pilsen Gold", reserv: "12 reservadas", retir: "6 retiradas"},
-        {key: '4', title: "Carioquinha", reserv: "2 reservadas", retir: ""},
-    ]);
+  const { user } = useContext(AuthContext);
+  const uid = user && user.uid;
+
+  useEffect(()=>{
+    async function loadList(){
+
+      await firebase.database().ref('reserva')
+      .child(uid)
+      .limitToLast(10)
+      .on('value', (snapshot)=>{
+        setReservado([]);
+
+        snapshot.forEach((childItem) => {
+          let list = {
+            key: childItem.val().keyBeer,
+            image: childItem.val().image,
+            title: childItem.val().title,
+            quant: childItem.val().quant,
+            quantRetir: childItem.val().quantRetir,
+          };
+          
+          setReservado(oldArray => [...oldArray, list].reverse());
+        })
+      })
+
+    }
+
+    loadList();
+  }, []);
 
   return (
     <Background>
@@ -29,7 +55,7 @@ export function Order() {
             </Text>
 
             <ListReserv
-                data={ceveja}
+                data={reservado}
                 showsVerticalScrollIndicator={false}
             />
         </View>

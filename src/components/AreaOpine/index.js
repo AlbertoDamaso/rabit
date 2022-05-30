@@ -4,7 +4,6 @@ import {
   Text,
   TextInput,
 } from 'react-native';
-import { Feather } from '@expo/vector-icons';
 
 import { theme } from '../../global/styles/theme';
 import { styles } from './styles';
