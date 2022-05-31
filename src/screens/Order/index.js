@@ -29,7 +29,7 @@ export function Order() {
 
         snapshot.forEach((childItem) => {
           let list = {
-            key: childItem.val().keyBeer,
+            keyBeer: childItem.val().keyBeer,
             image: childItem.val().image,
             title: childItem.val().title,
             quant: childItem.val().quant,
@@ -48,16 +48,16 @@ export function Order() {
   return (
     <Background>
         <View style={styles.container}>
-            <BtnDrawer/>
+          <BtnDrawer/>
 
-            <Text style={styles.title}>
-                Reservados
-            </Text>
+          <Text style={styles.title}>
+              Reservados
+          </Text>
 
-            <ListReserv
-                data={reservado}
-                showsVerticalScrollIndicator={false}
-            />
+          <ListReserv
+            data={reservado}
+            showsVerticalScrollIndicator={false}
+          />
         </View>
     </Background>  
   );

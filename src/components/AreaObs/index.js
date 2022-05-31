@@ -3,6 +3,7 @@ import {
   View,
   Text,
   TextInput,
+  Keyboard,
 } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 
@@ -30,7 +31,13 @@ export function AreaObs({ ...rest }) {
         </View>
 
         <View style={styles.txtArea}>
-            <TextInput              
+            <TextInput      
+              editable
+              maxLength={140}
+              returnKeyType="next"
+              autoCorrect={false}
+              autoCapitalize="none"                       
+              onSubmitEditing={ () => Keyboard.dismiss()}
               placeholder="Ex.: Retirada no local, as 14h."
               placeholderTextColor={theme.colors.secundary}
               style={styles.inputTxt}

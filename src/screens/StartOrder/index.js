@@ -5,7 +5,6 @@ import {
   Text,
   Keyboard
 } from 'react-native';
-import { ScrollView } from 'react-native-virtualized-view';
 import { Feather } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 
@@ -38,11 +37,11 @@ export function StartOrder(data) {
 
 
   function handledOrder(){
-    let key = data.route.params.key;
+    let keyBeer = data.route.params.key;
     let title = data.route.params.title;
     let image = data.route.params.image;
     
-    resv(count, obs, title, image,key);
+    resv(count, obs, title, image,keyBeer);
 
     setCount(1);
     setObs('');
@@ -52,7 +51,6 @@ export function StartOrder(data) {
 
   return (
     <Background>      
-      <ScrollView>
         <View>
             <Image
               source={{uri:data.route.params.image}}
@@ -115,19 +113,10 @@ export function StartOrder(data) {
           />
         </View>
 
-        <View>
-          <AreaObs
-            editable
-            maxLength={140}
-            returnKeyType="next"
-            onSubmitEditing={ () => Keyboard.dismiss()}
-            autoCorrect={false}
-            autoCapitalize="none"          
-            value={obs}
-            onChangeText={ (text) => setObs(text) }
-          />
-        </View>
-      </ScrollView>
+        <AreaObs
+          value={obs}
+          onChangeText={ (text) => setObs(text) }
+        />
     </Background>        
   );
 }

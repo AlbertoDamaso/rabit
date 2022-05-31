@@ -13,12 +13,13 @@ import { AuthContext } from '../../contexts/auth';
 import { styles } from './styles';
 
 export function Profile() {
-  const { user } = useContext(AuthContext);
   const navigation = useNavigation();
+  const { user } = useContext(AuthContext);
 
   function handleHome(){
     navigation.navigate('Reservar');
   }
+
 
   return (
     <Background>
@@ -34,10 +35,10 @@ export function Profile() {
             {user && user.name}  
           </Text>   
           <Text style={styles.revProfile}>
-            20 reservas
+            reservas
           </Text>
           <Text style={[styles.revProfile,{marginTop: 7}]}>
-            12 retiradas
+            retiradas
           </Text>
         </View>
 

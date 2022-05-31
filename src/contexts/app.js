@@ -27,7 +27,7 @@ function AppProvider({ children }){
     }
     addBeer();
 
-    //Tabela de Reservas
+    //Criete Tabela de Reservas
     async function resv(quant, obs, title, image, keyBeer) {
       let uid = user.uid;
       let key = await(await firebase.database().ref('reserva').child(uid).push()).key;
@@ -41,11 +41,20 @@ function AppProvider({ children }){
       })
     }
       
-    //Ler Reservas
+    //Criete Tabela Opine
+    async function opine(nameBeer, opinion, quantStar){
+      let uid = user.uid;
+      let key = await(await firebase.database().ref('opine').child(uid).push()).key;
+      await firebase.database().ref('opine').child(uid).child(key).set({
+        nameBeer: nameBeer,
+        opinion: opinion,
+        quantStar: quantStar,
+      })
+    }
 
 
     return(
-      <AppContext.Provider value={{ beer, resv }}>
+      <AppContext.Provider value={{ beer, resv, opine }}>
         {children}
       </AppContext.Provider>
     );

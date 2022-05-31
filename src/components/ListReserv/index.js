@@ -13,7 +13,7 @@ export function ListReserv({ data, ...rest }) {
       data={data}
       style={styles.matches}
       ItemSeparatorComponent={() => <LineDivider/>}
-      keyExtractor={ item => item.key}
+      keyExtractor={ item => item.keyBeer}
       renderItem={({ item }) => (
         <Reserv data={item}/> 
       )}
