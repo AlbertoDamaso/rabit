@@ -19,8 +19,7 @@ function AppProvider({ children }){
         descplus:". Cevada 7dias dentro de barril cervejeiro;\n. 6% de álcool;\n. Aromas amazônicos;\n. Frescor da Pilsen;",
          valor: 22.99},//3
     ]);
-    const { user } = useContext(AuthContext);
-    const uid = user.uid;
+    const { user } = useContext(AuthContext);    
     
     //Tabela de Cervejas Fixas
     async function addBeer() {
@@ -30,19 +29,33 @@ function AppProvider({ children }){
 
     //Criete Tabela de Reservas
     async function resv(quant, obs, title, image, keyBeer) {
-      let key = await(await firebase.database().ref('reserva').child(uid).push()).key;
-      await firebase.database().ref('reserva').child(uid).child(key).set({
-        keyBeer: keyBeer,
-        image: image,
-        title: title,
-        quant:quant,
-        obs:obs,
-        quantRetir: 0,
+      const uid = user.uid;
+      
+      //Se a reserva já existir inclui mais quant para mesma
+      let keyBeerStart = await firebase.database().ref('reserva').child(uid).child(uid);
+      keyBeerStart.on('value', (snapshot) =>{
+        if(snapshot.exists()){
+          console.log(keyBeer)
+          console.log(keyBeerStart.keyBeer)
+          console.log(snapshot.child("keyBeer").val())
+        } else{
+          //Cria uma reserva nova 
+          let key =  firebase.database().ref('reserva').child(uid).push().key;
+          firebase.database().ref('reserva').child(uid).child(key).set({
+            keyBeer: keyBeer,
+            image: image,
+            title: title,
+            quant:quant,
+            obs:obs,
+          })
+        }
       })
+      
     }
       
     //Criete Tabela Opine
     async function opine(nameBeer, opinion, quantStar){
+      const uid = user.uid;
       let key = await(await firebase.database().ref('opine').child(uid).push()).key;
       await firebase.database().ref('opine').child(uid).child(key).set({
         nameBeer: nameBeer,
