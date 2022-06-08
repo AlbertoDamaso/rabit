@@ -19,6 +19,8 @@ function AppProvider({ children }){
         descplus:". Cevada 7dias dentro de barril cervejeiro;\n. 6% de álcool;\n. Aromas amazônicos;\n. Frescor da Pilsen;",
          valor: 22.99},//3
     ]);
+    const [quantr, setQuantr] = useState(null);
+    const [keycerv, setKeycerv] = useState('');
     const { user } = useContext(AuthContext);    
     
     //Tabela de Cervejas Fixas
@@ -27,31 +29,30 @@ function AppProvider({ children }){
     }
     addBeer();
 
-    //Criete Tabela de Reservas
+    //Criete/update Tabela de Reservas/REFAZER O COD PARA QUE FUNCIONE
     async function resv(quant, obs, title, image, keyBeer) {
       const uid = user.uid;
       
-      //Se a reserva já existir inclui mais quant para mesma
-      let keyBeerStart = await firebase.database().ref('reserva').child(uid).child(uid);
-      keyBeerStart.on('value', (snapshot) =>{
-        if(snapshot.exists()){
-          console.log(keyBeer)
-          console.log(keyBeerStart.keyBeer)
-          console.log(snapshot.child("keyBeer").val())
-        } else{
-          //Cria uma reserva nova 
-          let key =  firebase.database().ref('reserva').child(uid).push().key;
-          firebase.database().ref('reserva').child(uid).child(key).set({
-            keyBeer: keyBeer,
-            image: image,
-            title: title,
-            quant:quant,
-            obs:obs,
-          })
-        }
+      await firebase.database().ref('reserva').child(uid).on('value', (snapshot)=>{
+        snapshot.forEach((childItem) =>{
+          if(childItem.val().keyBeer == keyBeer){
+            setKeycerv(childItem.key);
+            setQuantr(quant+childItem.val().quant);
+            console.log(keycerv)
+            //firebase.database().ref('reserva').child(uid).child(keycerv).update({quant: quantr});
+          }
+        })
       })
-      
     }
+    // //Cria uma reserva nova 
+    // let key =  firebase.database().ref('reserva').child(uid).push().key;
+    // firebase.database().ref('reserva').child(uid).child(key).set({
+    //   keyBeer: keyBeer,
+    //   image: image,
+    //   title: title,
+    //   quant:quant,
+    //   obs:obs,
+    // })   
       
     //Criete Tabela Opine
     async function opine(nameBeer, opinion, quantStar){

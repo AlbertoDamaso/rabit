@@ -33,7 +33,6 @@ export function Order() {
             image: childItem.val().image,
             title: childItem.val().title,
             quant: childItem.val().quant,
-            quantRetir: childItem.val().quantRetir,
           };
           
           setReservado(oldArray => [...oldArray, list].reverse());
