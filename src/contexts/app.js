@@ -33,27 +33,27 @@ function AppProvider({ children }){
     async function resv(quant, obs, title, image, keyBeer) {
       const uid = user.uid;
       
-      await firebase.database().ref('reserva').child(uid).on('value', (snapshot)=>{
-        snapshot.forEach((childItem) =>{
-          if(childItem.val().keyBeer == keyBeer){
-            setKeycerv(childItem.key);
-            setQuantr(quant+childItem.val().quant);
-            console.log(keycerv)
-            //firebase.database().ref('reserva').child(uid).child(keycerv).update({quant: quantr});
-          }
-        })
-      })
-    }
-    // //Cria uma reserva nova 
-    // let key =  firebase.database().ref('reserva').child(uid).push().key;
-    // firebase.database().ref('reserva').child(uid).child(key).set({
-    //   keyBeer: keyBeer,
-    //   image: image,
-    //   title: title,
-    //   quant:quant,
-    //   obs:obs,
-    // })   
-      
+    //   await firebase.database().ref('reserva').child(uid).on('value', (snapshot)=>{
+    //     snapshot.forEach((childItem) =>{
+    //       if(childItem.val().keyBeer == keyBeer){
+    //         setKeycerv(childItem.key);
+    //         setQuantr(quant+childItem.val().quant);
+    //         console.log(keycerv)
+    //         //firebase.database().ref('reserva').child(uid).child(keycerv).update({quant: quantr});
+    //       }
+    //     })
+    //   })
+    // }
+    //Cria uma reserva nova 
+      let key =  firebase.database().ref('reserva').child(uid).push().key;
+      firebase.database().ref('reserva').child(uid).child(key).set({
+        keyBeer: keyBeer,
+        image: image,
+        title: title,
+        quant:quant,
+        obs:obs,
+      })   
+    }  
     //Criete Tabela Opine
     async function opine(nameBeer, opinion, quantStar){
       const uid = user.uid;
