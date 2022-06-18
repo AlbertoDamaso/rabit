@@ -34,12 +34,7 @@ export function Profile() {
           <Text style={styles.nameProfile}>
             {user && user.name}  
           </Text>   
-          <Text style={styles.revProfile}>
-            reservas
-          </Text>
-          {/* <Text style={[styles.revProfile,{marginTop: 7}]}>
-            retiradas
-          </Text> */}
+
         </View>
 
         <View style={styles.areBtn}>

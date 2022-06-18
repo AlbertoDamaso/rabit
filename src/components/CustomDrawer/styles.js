@@ -12,7 +12,8 @@ export const styles = StyleSheet.create({
     color: theme.colors.light,
     fontFamily: theme.fonts.title,
     fontSize: 18,
-    marginTop: 15
+    marginTop: 15,
+    marginBottom: 15,
   },
   text: {
     color: theme.colors.primaryMais,

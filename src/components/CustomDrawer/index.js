@@ -22,9 +22,7 @@ export function CustomDrawer(props) {
             <Text style={styles.title}>
                {user && user.name}
             </Text>
-            <Text style={styles.text}>
-               6 reservas
-            </Text>
+
         </View>
 
         <View style={styles.lineDivider} />

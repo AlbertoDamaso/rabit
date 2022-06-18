@@ -7,7 +7,7 @@ export const styles = StyleSheet.create({
   },
   areaProfile: {
     width: '80%',
-    height: 220,
+    height: 200,
     marginTop: 140,
     justifyContent: 'center',
     alignItems: 'center',
@@ -24,14 +24,9 @@ export const styles = StyleSheet.create({
     fontFamily: theme.fonts.title,
     color: theme.colors.light,
     fontSize: 19,
-    marginTop: 21,
+    marginTop: 30,
   },
-  revProfile: {
-    fontFamily: theme.fonts.text,
-    color: theme.colors.primaryMenos,
-    fontSize: 18,
-    marginTop: 21,
-  },
+
   areBtn: {
     marginTop: 47,
   },
